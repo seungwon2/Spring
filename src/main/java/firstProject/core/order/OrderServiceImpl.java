@@ -11,6 +11,7 @@ public class OrderServiceImpl implements OrderService {
     //이 서비스에서는 멤버 조회와 할인 정책 적용이 필요
     //레포지토리와 할인 정책을 가져옴
     private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //현 코드 문제점 : 클라이언트인 impl에도 의존적인 설계!
     private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
 
     @Override
