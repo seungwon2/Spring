@@ -3,17 +3,16 @@ package firstProject.core;
 import firstProject.core.member.Grade;
 import firstProject.core.member.Member;
 import firstProject.core.member.MemberService;
-import firstProject.core.member.MemberServiceImpl;
 import firstProject.core.order.Order;
 import firstProject.core.order.OrderService;
-import firstProject.core.order.OrderServiceImpl;
 
 public class OrderApp {
 
     public static void main(String[] args) {
-        //멤버를 저장해야 주문이 가능하니까 우선 멤버부터
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+        //Appconfig 이용해서 구현체 생성
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 
         //멤버 일단 생성해서 가입시킴
         long memberId = 1L;

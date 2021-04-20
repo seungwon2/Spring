@@ -4,9 +4,9 @@ import firstProject.core.member.*;
 
 public class MemberApp {
     public static void main(String[] args) {
-        //멤버 서비스 내부에서 알아서 메모리로 저장하게 만들어서 여기서 멤버 서비스만 불러와도 됨!
-        //현 코드 문제점 : 클라이언트인 impl에도 의존적인 설계!
-        MemberService memberService = new MemberServiceImpl();
+        //Appconfig를 실행
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
         Member member = new Member(1L, "A", Grade.VIP);
         //회원가입을 시킨다
         memberService.join(member);
