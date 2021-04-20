@@ -1,10 +1,20 @@
 package firstProject.core.member;
 
+import firstProject.core.AppConfig;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MemberServiceTest {
-    MemberService memberService = new MemberServiceImpl();
+    //인터페이스는 선언만!
+    MemberService memberService;
+
+    //테스트 코드 실행 전에 appconfig로 먼저 멤버서비스 가져오도록 설계!
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
 
     //Junit test이용
     //given-when-then 방식 이용
