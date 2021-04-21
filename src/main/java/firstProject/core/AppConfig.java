@@ -1,7 +1,7 @@
 package firstProject.core;
 
 import firstProject.core.discount.DiscountPolicy;
-import firstProject.core.discount.FixDiscountPolicy;
+import firstProject.core.discount.RateDiscountPolicy;
 import firstProject.core.member.MemberRepository;
 import firstProject.core.member.MemberService;
 import firstProject.core.member.MemberServiceImpl;
@@ -27,6 +27,7 @@ public class AppConfig {
 
     //할인 정책 변경할 때 이제 retrun 문만 수정하면 된다.
     public DiscountPolicy discountPolicy(){
-        return new FixDiscountPolicy();
+//        return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 }
