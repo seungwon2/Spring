@@ -5,14 +5,20 @@ import firstProject.core.member.Member;
 import firstProject.core.member.MemberService;
 import firstProject.core.order.Order;
 import firstProject.core.order.OrderService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class OrderApp {
 
     public static void main(String[] args) {
         //Appconfig 이용해서 구현체 생성
-        AppConfig appConfig = new AppConfig();
-        MemberService memberService = appConfig.memberService();
-        OrderService orderService = appConfig.orderService();
+//        AppConfig appConfig = new AppConfig();
+//        MemberService memberService = appConfig.memberService();
+//        OrderService orderService = appConfig.orderService();
+
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
+        OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
 
         //멤버 일단 생성해서 가입시킴
         long memberId = 1L;

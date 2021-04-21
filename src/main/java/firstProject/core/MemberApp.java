@@ -1,12 +1,19 @@
 package firstProject.core;
 
 import firstProject.core.member.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MemberApp {
     public static void main(String[] args) {
         //Appconfig를 실행
-        AppConfig appConfig = new AppConfig();
-        MemberService memberService = appConfig.memberService();
+//        AppConfig appConfig = new AppConfig();
+//        MemberService memberService = appConfig.memberService();
+        //Application context로 appconfig 내 클래스를 끌어옴
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        //멤버서비스를 app에 있는 bean을 가져와서 불러옴
+        MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
+
         Member member = new Member(1L, "A", Grade.VIP);
         //회원가입을 시킨다
         memberService.join(member);
