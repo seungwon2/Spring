@@ -2,7 +2,9 @@ package firstProject.core.discount;
 
 import firstProject.core.member.Grade;
 import firstProject.core.member.Member;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy {
 
     //나중에 할인률이 바뀔 수도 있으니 따로 변수로 뺴놓음!

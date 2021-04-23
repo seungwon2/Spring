@@ -1,8 +1,11 @@
 package firstProject.core.member;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class MemoryMemberRepository implements MemberRepository{
 
     //해시맵으로 아이디와 멤버를 저장한다. key가 아이디 값이 member

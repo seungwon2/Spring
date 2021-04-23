@@ -1,11 +1,17 @@
 package firstProject.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+
 public class MemberServiceImpl implements MemberService{
 
     //인터페이스를 선언만
     private final MemberRepository memberRepository;
 
     //생성자 만들면서 구현체를 생성 - app config에서 나중에 주입하도록 만듦
+    @Autowired//ac.getBean(MemberRepository.class) 역할을 함
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
