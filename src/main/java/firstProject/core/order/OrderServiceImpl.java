@@ -3,7 +3,6 @@ package firstProject.core.order;
 import firstProject.core.discount.DiscountPolicy;
 import firstProject.core.member.Member;
 import firstProject.core.member.MemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,7 +14,7 @@ public class OrderServiceImpl implements OrderService {
 
     //생성자 만들 때 의존 관계를 주입!
     //Autowired 를 써서 자동으로 스프링빈이 의존관계 주입하도록 설정
-    @Autowired
+    //생성자가 하나일 때 autowired 안써도 자동으로 의존관계가 주입됨
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
