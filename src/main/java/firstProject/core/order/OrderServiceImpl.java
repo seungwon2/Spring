@@ -13,6 +13,7 @@ public class OrderServiceImpl implements OrderService {
     //인터페이스 선언만
     //롬복 사용시 자동으로 생성자를 만들어줌
     private final MemberRepository memberRepository;
+    //이거 타입으로만 조회(Autowired 디폴트 값)하게 놔두면 fix랑 rate 겹침
     private final DiscountPolicy discountPolicy;
 
     @Override
