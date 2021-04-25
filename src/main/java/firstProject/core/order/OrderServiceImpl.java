@@ -3,22 +3,17 @@ package firstProject.core.order;
 import firstProject.core.discount.DiscountPolicy;
 import firstProject.core.member.Member;
 import firstProject.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     //인터페이스 선언만
+    //롬복 사용시 자동으로 생성자를 만들어줌
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
-
-    //생성자 만들 때 의존 관계를 주입!
-    //Autowired 를 써서 자동으로 스프링빈이 의존관계 주입하도록 설정
-    //생성자가 하나일 때 autowired 안써도 자동으로 의존관계가 주입됨
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

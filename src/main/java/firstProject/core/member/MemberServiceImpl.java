@@ -1,20 +1,15 @@
 package firstProject.core.member;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-
+@RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService{
 
     //인터페이스를 선언만
+    //롬복으로 생성자 자동 생성되고 의존 관계 자동 주입됨
     private final MemberRepository memberRepository;
-
-    //생성자 만들면서 구현체를 생성 - app config에서 나중에 주입하도록 만듦
-    @Autowired//ac.getBean(MemberRepository.class) 역할을 함
-    public MemberServiceImpl(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
 
     //회원가입
     //memberRepository 안에 있는 save 메소드를 이렇게 이용
